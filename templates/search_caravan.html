@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block title %} Search {% endblock %}
+{% block content %}
+<br><br>
+<section class="hero has-background-grey-lighter">
+    <br>
+    <h1 class="title has-text-centered">SEARCH RESULTS</h1>
+    <div class="hero-body">
+        <form method="POST">
+        <div class="columns is-multiline">
+            {% for row in data %}
+            <div class="column is-one-third">
+                <article class="media">
+                    <figure class="media-left">
+
+                        <img src="/static/profile_picture.jpg" width="256" height="256">
+
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>Brand: </strong> {{row[3]}}
+                                <br>
+                                <strong>Model: </strong> {{row[4]}}
+                                <br>
+                                <strong>Model Year: </strong> {{row[5]}}
+                                <br>
+                                <strong>Transmission: </strong> {{row[6]}}
+                                <br>
+                                <strong>Caravan Size: </strong> {{row[7]}}
+                                <br>
+                                <strong>Cost Per Day: </strong> <i class="fas fa-dollar-sign"></i> {{row[8]}}
+                            </p>
+                        </div>
+                        <div class="control">
+                            <strong>Caravan Insurance</strong><br>(<i class="fas fa-dollar-sign"></i> 20 per day)<br>
+                            <label class="radio">
+                                <input type="radio" name="answer" value="Yes"> Yes
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="answer" value="No"> No
+                            </label>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <p class="level-item"><button class="button is-white is-outlined" type="submit" name="caravan" value="{{row[0]}}">Rent</button></p>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

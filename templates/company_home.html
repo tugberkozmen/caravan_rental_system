@@ -1,0 +1,152 @@
+{% extends "layout_company.html" %}
+{% block title %} Home {% endblock %}
+{% block head %}
+<link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+<style>
+    .hero {
+        background-image: url("static/caravan.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <form class="container" method="POST">
+            <br><br><br><br><br><br>
+            <h1 class="title has-text-left has-text-light is-size-2">Add Caravan</h1>
+
+            <div class="field is-horizontal">
+
+                <div class="field-body">
+                    <div class="field is-narrow">
+                        <div class="control">
+                            <div class="select is-fullwidth is-rounded">
+                                <select name="category">
+                                    <option disabled selected>Select caravan category</option>
+                                    <option value="1">Conventional Caravan</option>
+                                    <option value="2">Pop Top Caravan</option>
+                                    <option value="3">Tiny Teardrop Trailers</option>
+                                    <option value="4">Fifth wheelers</option>
+                                    <option value="5">Motorhome</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input class="input" type="text" name="brand" style="width: 30%;" placeholder="Brand">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-caravan"></i>
+                    </span>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input class="input" type="text" name="model" style="width: 30%;" placeholder="Model">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-caravan"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input class="input" type="text" name="modelyear" style="width: 30%;" placeholder="Model Year">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-caravan"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input class="input" type="text" name="transmission" style="width: 30%;" placeholder="Transmission">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-caravan"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input class="input" type="text" name="size" style="width: 30%;" placeholder="Caravan Size">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-caravan"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input class="input" type="text" name="cost" style="width: 30%;" placeholder="Cost per Day">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-dollar-sign"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <!-- Left empty for spacing -->
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary is-rounded" type="submit">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="has-text-left has-text-white has-background-primary" style="width: 30%;">{{mesaj}}</div>
+        </form>
+    </div>
+</section>
+
+<section class="section has-background-grey-lighter">
+    <h1 class="title has-text-centered">Why choose caravan rental system</h1>
+    <div class="columns">
+        <div class="column">
+            <div class="card is-shadowless has-background-grey-lighter">
+                <div class="card-content has-text-centered">
+                    <div class="content">
+                        <i class="fas fa-caravan fa-4x"></i>
+                        <p class="title is-size-4 has-text-weight-light">Practical</p>
+                        <p>More practical to find suitable caravan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-shadowless has-background-grey-lighter">
+                <div class="card-content has-text-centered">
+                    <div class="content">
+                        <i class="fa fa-wifi fa-4x"></i>
+                        <p class="title is-size-4 has-text-weight-light">Accessible</p>
+                        <p>Quick access to rental caravans anywhere</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card is-shadowless has-background-grey-lighter">
+                <div class="card-content has-text-centered">
+                    <div class="content">
+                        <i class="fas fa-shield-alt fa-4x"></i>
+                        <p class="title is-size-4 has-text-weight-light">Reliable</p>
+                        <p>Receiving service safely thanks to the presence of approved companies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

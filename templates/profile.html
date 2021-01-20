@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+<section class="hero has-background-grey-lighter">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-three-quarters">
+                    <br>
+                    <h1 class="title">Profile Informations</h1>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <td> {{session['customer_name']}}, {{session['customer_lastname']}} </td>
+                        </tr>
+                        <tr>
+                            <th>Driving Licence ID</th>
+                            <td> {{session['licenceID']}} </td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td> {{session['email']}} </td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td> {{session['phone']}} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+        <form method="POST">
+            <table class="table has-text-centered">
+                <thead>
+                    <tr>
+                        <h1 class="title">My RESERVATIONS</h1>
+                    </tr>
+                    <tr>
+                        <th>Caravan Brand</th>
+                        <th>Caravan Model</th>
+                        <th>Caravan Model Year</th>
+                        <th>Location</th>
+                        <th>Pickup Date</th>
+                        <th>Return Date</th>
+                        <th>Insurance</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in details %}
+                    <tr>
+                        <td> {{row[0]}} </td>
+                        <td> {{row[1]}} </td>
+                        <td> {{row[2]}} </td>
+                        <td> {{row[3]}}, {{row[4]}}/{{row[5]}} </td>
+                        <td> {{row[6]}} </td>
+                        <td> {{row[7]}} </td>
+                        <td> {{row[8]}} </td>
+                        <td> <i class="fas fa-dollar-sign"></i> {{row[9]}} </td>
+                        <td>
+                            <button class="button is-danger is-outlined is-small" type="submit" name="reservation"
+                                value="{{row[10]}}">
+                                <span>Cancel</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

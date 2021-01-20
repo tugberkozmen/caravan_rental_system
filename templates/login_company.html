@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %} Log in {% endblock %}
+
+{% block content %}
+<br><br>
+<form class="section has-background-grey-lighter" method="POST">
+    <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" type="text" name="name" style="width: 30%;" placeholder="Company Name">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" type="password" name="password" style="width: 30%;" placeholder="Password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+      </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-white is-outlined" style="margin-left: -80px;">
+                            Log in
+                        </button>
+                        <div class="has-text-left">{{msg}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+{% endblock %}

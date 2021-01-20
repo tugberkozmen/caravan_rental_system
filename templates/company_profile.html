@@ -1,0 +1,76 @@
+{% extends "layout_company.html" %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+<section class="hero has-background-grey-lighter">
+    <div class="hero-body">
+      <div class="container">
+          <div class="columns">
+              <div class="column is-three-quarters">
+                  <br>
+                  <h1 class="title has-text-left">Profile Informations</h1>
+                  <table>
+                      <tr>
+                          <th>Name</th>
+                          <td> {{session['company_name']}}</td>
+                      </tr>
+                      <tr>
+                          <th>Phone Number</th>
+                          <td> {{session['company_phone']}} </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+      <br>
+      <form method="POST">
+      <table class="table has-text-centered">
+        <thead>
+            <tr>
+                <h1 class="title">RESERVATIONS</h1>
+            </tr>
+            <tr>
+                <th>Customer Name</th>
+                <th>Customer Surname</th>
+                <th>Customer LicenceID</th>
+                <th>Customer Email</th>
+                <th>Customer Phone</th>
+                <th>Caravan Brand</th>
+                <th>Caravan Model</th>
+                <th>Pickup Date</th>
+                <th>Return Date</th>
+                <th>Insurance</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in reservation %}
+            <tr>
+                <td> {{row[0]}} </td>
+                <td> {{row[1]}} </td>
+                <td> {{row[2]}} </td>
+                <td> {{row[3]}} </td>
+                <td> {{row[4]}} </td>
+                <td> {{row[5]}} </td>
+                <td> {{row[6]}} </td>
+                <td> {{row[7]}} </td>
+                <td> {{row[8]}} </td>
+                <td> {{row[9]}} </td>
+                <td> <i class="fas fa-dollar-sign"></i> {{row[10]}} </td>
+                <td> 
+                    <button class="button is-danger is-outlined is-small" type="submit" name="reservation" value="{{row[11]}}">
+                        <span>Cancel</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-times"></i>  
+                        </span>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      </form>
+    </div>
+</section>
+
+{% endblock %}

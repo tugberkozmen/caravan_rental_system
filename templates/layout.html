@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Caravan{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <header>
+
+            <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+              <div class="container">
+                  <div class="navbar-brand">
+                      <a class="navbar-item has-text-primary-dark is-size-5">Caravan Rental System</a>
+      
+                      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                          data-target="navbarBasicExample">
+                          <span aria-hidden="true"></span>
+                          <span aria-hidden="true"></span>
+                          <span aria-hidden="true"></span>
+                      </a>
+                  </div>
+      
+                  <div id="navbarBasicExample" class="navbar-menu">
+                      <div class="navbar-start">
+                          <a class="navbar-item" href="{{url_for('home_page')}}">Home</a>
+                          <a class="navbar-item" href="{{url_for('caravans_page')}}">Caravans</a>
+                      </div>
+      
+                      <div class="navbar-end">
+                          <div class="navbar-item">
+                              <div class="buttons">
+                                  {% if session['name'] %}
+                                  <a class="navbar-item">Welcome, {{session['name']}}</a>
+                                  <a class="button is-primary" href="{{url_for('profile_page')}}">Profile</a>
+                                  <a class="button is-primary" href="{{url_for('logout')}}">Logout</a>
+                                  {% else %}
+                                  <a class="button is-primary" href="{{url_for('register_page')}}"><strong>Sign up</strong></a>
+                                  <a class="button is-light" href="{{url_for('login_page')}}">Log in</a>
+                                  {% endif %}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </nav> 
+
+
+
+        </header>
+        {% block content %}{% endblock %}
+        <footer>
+            <small>&copy 2020 Tuğberk Özmen</small>
+        </footer>
+    </body>
+</html>

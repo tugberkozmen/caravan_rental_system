@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %} Register {% endblock %}
+
+{% block content %}
+<br><br>
+
+<form class="section has-background-grey-lighter" method = "POST">
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="text" name = "name" style="width: 30%;" placeholder="Name">
+            <span class="icon is-small is-left">
+                <i class="fas fa-id-card"></i>
+            </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="text" name = "surname" style="width: 30%;" placeholder="Surname">
+            <span class="icon is-small is-left">
+                <i class="fas fa-id-card"></i>
+            </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="number" name = "drivinglicence" style="width: 30%;" placeholder="Driving Licence ID">
+            <span class="icon is-small is-left">
+                <i class="fas fa-car"></i>
+            </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="text" name = "email" style="width: 30%;" placeholder="Email">
+            <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+            </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="number" name = "phone" style="width: 30%;" placeholder="Phone Number">
+            <span class="icon is-small is-left">
+                <i class="fas fa-phone-alt"></i>
+            </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="password" name = "password" style="width: 30%;" placeholder="Password">
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+        </p>
+    </div>
+
+    <h1>For register as a company please <a href="{{url_for('register_company_page')}}">click here</a></h1>
+    <br>
+
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="has-text-left">{{message}}</div>
+                <div class="control">
+                    <button type="submit" class="button is-white is-outlined" style="margin-left: -80px;">
+                        Sign up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</form>
+{% endblock %}
